@@ -91,15 +91,6 @@ export default function Page() {
           <span>{vacancy?.location}</span>
         </div>
         <div className="space-y-3">
-          {vacancy?.sallery && (
-            <div className="flex items-center text-gray-800 gap-2">
-              <Image src={Money} alt="money" width={20} height={20} />
-              <span className="text-[15px]">
-                {vacancy?.sallery}$ - {vacancy?.sallery + 200}${" "}
-                <span className="text-gray-500">/თვეში</span>
-              </span>
-            </div>
-          )}
           <div className="flex items-center gap-2 text-gray-800 text-sm">
             <Image src={Email} alt="email" width={20} height={20} />
             {vacancy?.company.email}

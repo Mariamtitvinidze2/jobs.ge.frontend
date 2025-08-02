@@ -31,7 +31,10 @@ export default function page() {
       });
 
       if (resp.status === 200) {
-        setCompanies(resp.data);
+        setCompanies(
+          resp.data.filter((company: Company) => company.status === "pending")
+        );
+
         setLoading(false);
       }
 
@@ -82,10 +85,10 @@ export default function page() {
                     <div
                       className={`px-3 py-2 rounded-2xl text-white font-bold ${
                         el.status === "pending"
-                          ? "bg-amber-400"
+                          ? "bg-[#e1de40]"
                           : el.status === "rejected"
-                          ? "bg-red-500"
-                          : "bg-green-500"
+                          ? "bg-[#f84863]"
+                          : "bg-[#63f16d]"
                       }`}
                     >
                       {el.status}

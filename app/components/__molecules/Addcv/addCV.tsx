@@ -99,7 +99,7 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
           </label>
 
           {file !== null ? (
-            <p className="text-green-400">! ფაილი არჩეულია</p>
+            <p className="text-black">რეზიუმის არჩევა წარმატებით შესრულდა</p>
           ) : null}
         </div>
 

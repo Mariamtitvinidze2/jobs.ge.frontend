@@ -107,10 +107,6 @@ export default function VacancyModal({
         </div>
 
         <div className="mt-3">
-          <h1 className="text-[14px] flex items-center gap-2">
-            <Image src={Money} alt="money" width={20} height={20} />
-            {vacancy.sallery}$ - {vacancy.sallery + 200}$ / თვეში
-          </h1>
           <p className="flex gap-2 text-[13px] mt-2">
             <Image
               src="https://myjobs.ge/images/people.svg"
@@ -200,7 +196,9 @@ export default function VacancyModal({
                   ფაილის არჩევა
                 </label>
                 {file && (
-                  <p className="text-green-500 text-sm">! ფაილი არჩეულია</p>
+                  <p className="text-black text-sm">
+                    რეზიუმის არჩევა წარმატებით შესრულდა
+                  </p>
                 )}
               </div>
 

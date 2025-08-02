@@ -146,12 +146,8 @@ export default function AddVacancy() {
       <Header />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-xl mx-auto p-6 bg-white shadow-[0_0_100px_rgba(0,0,0,0.08)] rounded-[20px] space-y-4 mt-[130px]"
+        className="max-w-4xl mx-auto p-10 bg-white shadow-[0_0_100px_rgba(0,0,0,0.08)] rounded-[30px] space-y-6 mt-[130px] border border-gray-100"
       >
-        <h2 className="text-2xl font-bold text-center text-gray-800">
-          დაამატე ვაკანსია
-        </h2>
-
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
             ვაკანსიის სახელი
@@ -169,13 +165,12 @@ export default function AddVacancy() {
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            ანაზღაურება ($)
+            ხელფასი
           </label>
           <input
             {...register("sallery")}
             type="number"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-            placeholder="მაგ. 1000"
           />
           {errors.sallery && (
             <p className="text-red-500 text-[14px]">{errors.sallery.message}</p>
@@ -294,7 +289,7 @@ export default function AddVacancy() {
 
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800 transition duration-300"
+          className="w-full py-3 px-6 bg-gradient-to-r from-[#4f2cdb] via-[#3b3eea] to-[#3a23ea] text-white font-semibold rounded-xl shadow-lg hover:opacity-90 transition-all duration-300"
         >
           დაამატე ვაკანსია
         </button>

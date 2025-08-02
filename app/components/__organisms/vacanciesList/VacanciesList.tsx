@@ -118,18 +118,6 @@ export default function VacanciesList() {
                   {el.location}
                 </p>
               </div>
-              <div className="flex items-center justify-between mt-4">
-                <span className="text-[13px] text-[#909090]">
-                  {el.createdAt.split("T")[0]}
-                </span>
-                {el.sallery && (
-                  <span className="text-[14px] flex items-center gap-1">
-                    <Image src={Money} alt="money" width={18} height={18} />
-                    {el.sallery}$ - {el.sallery + 200}$
-                    <span className="text-gray-500 text-[13px]">/თვეში</span>
-                  </span>
-                )}
-              </div>
             </Link>
           ))}
         </div>
