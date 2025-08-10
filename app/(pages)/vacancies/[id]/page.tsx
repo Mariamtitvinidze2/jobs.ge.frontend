@@ -73,7 +73,7 @@ export default function Page() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-3xl font-bold text-gray-900">{vacancy?.name}</h1>
           <p className="text-sm text-gray-500">
-            გამოქვეყნდა: {vacancy?.createdAt.split("T")[0]}
+            Published: {vacancy?.createdAt.split("T")[0]}
           </p>
         </div>
         <div className="text-sm text-gray-600 flex gap-2 items-center">
@@ -98,7 +98,7 @@ export default function Page() {
         </div>
         <div className="pt-4">
           <h2 className="text-xl font-semibold text-gray-800 mb-3">
-            ვაკანსიის აღწერა
+            Vacancy Description
           </h2>
           <p className="bg-purple-50 border-l-4 border-purple-500 pl-4 py-3 text-gray-700 leading-relaxed rounded-md text-sm">
             {vacancy?.description}
@@ -110,7 +110,7 @@ export default function Page() {
               onClick={addResume}
               className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-semibold shadow-md transition"
             >
-              გააგზავნე CV
+              Send CV
             </button>
           </div>
         )}

@@ -15,38 +15,38 @@ import Image from "next/image";
 import success from "../../assets/images/success_7518748.png";
 
 const categories = [
-  "IT და პროგრამირება",
-  "საგანმანათლებლო",
-  "მარკეტინგი",
-  "ფინანსები",
-  "სამედიცინო სფერო",
-  "სამართალი",
-  "სამშენებლო",
-  "ბუღალტერია, ფინანსები",
-  "ავტო-სერვისი",
-  "განცხადება, მოლარე, კონსულტანტი",
-  "განათლება",
-  "გაყიდვები, მარკეტინგი",
-  "დაზღვევა, ბანკები",
-  "დასუფთავება",
-  "დაცვა, უსაფრთხოება",
-  "მზარეული, ბარმენი",
-  "მექანიკა",
-  "მშენებლობა",
-  "რემონტი, შენმებობა",
-  "საოფისე საქმე, ადმინისტრირება",
-  "სასტუმრო, ტურიზმი",
-  "სამშენებლო სამგზავროები",
-  "სპორტი, გარიგება",
-  "ინჟინერია",
-  "სტატისტიკა",
-  "მენეჯმენტი",
-  "ლოგისტიკა, საქმეები",
-  "ფარმაცია, ჯანმრთელობა",
-  "ხელოვნება, მენეჯმენტი",
-  "ხელოსანი, შეკეთება, მორთული",
-  "ჭკა, მომღერლე, დამხმარე",
-  "წყალქვეშა მეხანძრე",
+  "IT and Programming",
+  "Education",
+  "Marketing",
+  "Finance",
+  "Medical Field",
+  "Law",
+  "Construction",
+  "Accounting, Finance",
+  "Auto Service",
+  "Advertisement, Cashier, Consultant",
+  "Education",
+  "Sales, Marketing",
+  "Insurance, Banking",
+  "Cleaning",
+  "Security, Safety",
+  "Chef, Bartender",
+  "Mechanics",
+  "Construction",
+  "Repair, Construction",
+  "Office Work, Administration",
+  "Hospitality, Tourism",
+  "Construction Transport",
+  "Sports, Entertainment",
+  "Engineering",
+  "Statistics",
+  "Management",
+  "Logistics, Operations",
+  "Pharmacy, Healthcare",
+  "Arts, Management",
+  "Craftsman, Repair, Maintenance",
+  "Singer, Assistant",
+  "Underwater Firefighter",
 ];
 
 export default function AddVacancy() {
@@ -88,9 +88,9 @@ export default function AddVacancy() {
       }
     } catch (error) {
       if (error instanceof AxiosError) {
-        setErrorMessage(error.response?.data?.message || "დაფიქსირდა შეცდომა.");
+        setErrorMessage(error.response?.data?.message || "An error occurred.");
       } else {
-        setErrorMessage("დაფიქსირდა გაუთვალისწინებელი შეცდომა.");
+        setErrorMessage("An unexpected error occurred.");
       }
     }
   };
@@ -102,7 +102,8 @@ export default function AddVacancy() {
           <div className="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md animate-fade-in">
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <h1 className="text-center text-sm sm:text-base font-medium text-gray-800">
-                თქვენი ვაკანსია წარმატებით გაიგზავნა და ელოდება დამტკიცებას
+                Your vacancy has been successfully submitted and is awaiting
+                approval
               </h1>
               <Image
                 src={success}
@@ -150,13 +151,13 @@ export default function AddVacancy() {
       >
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            ვაკანსიის სახელი
+            Vacancy Title
           </label>
           <input
             {...register("name")}
             type="text"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-            placeholder="ვაკანსიის სახელი"
+            placeholder="Vacancy Title"
           />
           {errors.name && (
             <p className="text-red-500 text-[14px]">{errors.name.message}</p>
@@ -165,7 +166,7 @@ export default function AddVacancy() {
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            ხელფასი
+            Salary
           </label>
           <input
             {...register("sallery")}
@@ -179,14 +180,14 @@ export default function AddVacancy() {
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            აირჩიე სფერო
+            Select Category
           </label>
           <button
             type="button"
             onClick={() => setCategoryModal(true)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-400"
           >
-            {selectedCategory || "აირჩიე სფერო"}
+            {selectedCategory || "Select Category"}
           </button>
           {errors.location && (
             <p className="text-red-500 text-[14px]">
@@ -194,21 +195,21 @@ export default function AddVacancy() {
             </p>
           )}
         </div>
-        {/* სამუშაო ადგილი */}
+        {/* Workplace */}
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            სამუშაო ადგილი
+            Workplace
           </label>
           <button
             type="button"
             onClick={() => setWorkplaceOptionsVisible(!workplaceOptionsVisible)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-400"
           >
-            {selectedWorkplace || "აირჩიე სამუშაო ადგილი"}
+            {selectedWorkplace || "Select Workplace"}
           </button>
           {workplaceOptionsVisible && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
-              {["ადგილზე", "სახლში", "არჩევით"].map((option) => (
+              {["On-site", "Remote", "Hybrid"].map((option) => (
                 <button
                   key={option}
                   type="button"
@@ -231,36 +232,34 @@ export default function AddVacancy() {
           )}
         </div>
 
-        {/* დროის მონაკვეთი */}
+        {/* Duration */}
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            დროის მონაკვეთი
+            Duration
           </label>
           <button
             type="button"
             onClick={() => setDurationOptionsVisible(!durationOptionsVisible)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-400"
           >
-            {selectedDuration || "აირჩიე დროის მონაკვეთი"}
+            {selectedDuration || "Select Duration"}
           </button>
           {durationOptionsVisible && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
-              {["ნახევარ განაკვეთიანი", "სრულ განაკვეთიანი", "შერეული"].map(
-                (option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => {
-                      setSelectedDuration(option);
-                      setValue("duration", option);
-                      setDurationOptionsVisible(false);
-                    }}
-                    className="py-2 px-4 bg-gradient-to-r from-[#e7d8f0] to-[#d9aaf4] rounded-lg hover:bg-purple-200 text-sm text-gray-700"
-                  >
-                    {option}
-                  </button>
-                )
-              )}
+              {["Part-time", "Full-time", "Mixed"].map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => {
+                    setSelectedDuration(option);
+                    setValue("duration", option);
+                    setDurationOptionsVisible(false);
+                  }}
+                  className="py-2 px-4 bg-gradient-to-r from-[#e7d8f0] to-[#d9aaf4] rounded-lg hover:bg-purple-200 text-sm text-gray-700"
+                >
+                  {option}
+                </button>
+              ))}
             </div>
           )}
           {errors.duration && (
@@ -272,13 +271,13 @@ export default function AddVacancy() {
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            აღწერა
+            Description
           </label>
           <textarea
             {...register("description")}
             rows={4}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-            placeholder="ვაკანსიის აღწერა..."
+            placeholder="Vacancy Description..."
           ></textarea>
           {errors.description && (
             <p className="text-red-500 text-[14px]">
@@ -291,7 +290,7 @@ export default function AddVacancy() {
           type="submit"
           className="w-full py-3 px-6 bg-gradient-to-r from-[#4f2cdb] via-[#3b3eea] to-[#3a23ea] text-white font-semibold rounded-xl shadow-lg hover:opacity-90 transition-all duration-300"
         >
-          დაამატე ვაკანსია
+          Add Vacancy
         </button>
       </form>
     </div>

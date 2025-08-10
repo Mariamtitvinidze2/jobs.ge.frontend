@@ -1,4 +1,5 @@
 "use client";
+
 import { axiosInstance } from "@/app/lib/axios-instance";
 import { SignUpSchema, SignUpType } from "../../validations/SignUp-schema";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -82,7 +83,7 @@ export default function SignUp() {
       <Image src={logo} alt="" width={140} height={140} />
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-2xl ml-[-164px] font-bold text-center text-[#3f3ad4] mb-6 max-[450px] text-[22px]">
-          ანგარიშის შექმნა
+          Create Account
         </h2>
 
         {errorMessage && (
@@ -105,7 +106,7 @@ export default function SignUp() {
                   }`}
                 style={{ transformOrigin: "center" }}
               >
-                მომხმარებელი
+                User
               </button>
 
               <button
@@ -119,7 +120,7 @@ export default function SignUp() {
                   }`}
                 style={{ transformOrigin: "center" }}
               >
-                კომპანია
+                Company
               </button>
             </div>
             {errors.role && (
@@ -131,14 +132,14 @@ export default function SignUp() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              სრული სახელი
+              Full Name
             </label>
             <input
               {...register("fullName")}
               type="text"
               name="fullName"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A155B9]"
-              placeholder="სახელი"
+              placeholder="Name"
             />
             {errors.fullName && (
               <p className="text-red-500 text-[14px]">
@@ -149,7 +150,7 @@ export default function SignUp() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              ელ-ფოსტა
+              Email
             </label>
             <input
               {...register("email")}
@@ -157,7 +158,7 @@ export default function SignUp() {
               name="email"
               id="email"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A155B9]"
-              placeholder="ემაილი"
+              placeholder="Email"
             />
             {errors.email && (
               <p className="text-red-500 text-[14px]">{errors.email.message}</p>
@@ -166,7 +167,7 @@ export default function SignUp() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              პაროლი
+              Password
             </label>
             <div className="relative">
               <input
@@ -175,7 +176,7 @@ export default function SignUp() {
                 name="password"
                 id="password"
                 className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A155B9]"
-                placeholder="password"
+                placeholder="Password"
               />
               <button
                 type="button"
@@ -194,7 +195,7 @@ export default function SignUp() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              გაიმეორე პაროლი
+              Confirm Password
             </label>
             <input
               {...register("confirmPassword")}
@@ -202,7 +203,7 @@ export default function SignUp() {
               name="confirmPassword"
               id="confirmPassword"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A155B9]"
-              placeholder="პაროლის გამეორება"
+              placeholder="Confirm Password"
             />
             {errors.confirmPassword && (
               <p className="text-red-500 text-[14px]">
@@ -214,7 +215,7 @@ export default function SignUp() {
           {role === "COMPANY" && (
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                აღწერა
+                Description
               </label>
               <textarea
                 {...register("description")}
@@ -222,7 +223,7 @@ export default function SignUp() {
                 id="description"
                 rows={4}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A155B9] resize-none"
-                placeholder="მიუთითე შენი კომპანიის შესახებ ან სხვა დამატებითი ინფორმაცია..."
+                placeholder="Provide information about your company or other additional details..."
               />
               {errors.description && (
                 <p className="text-red-500 text-[14px]">
@@ -239,14 +240,14 @@ export default function SignUp() {
               isLoading ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            {isLoading ? "Creating..." : "შექმენი ანგარიში"}
+            {isLoading ? "Creating..." : "Create Account"}
           </button>
         </form>
       </div>
       <div className="flex ml-2 gap-[26px] mt-3">
-        <p>გაქვთ ანგარიში? </p>
+        <p>Already have an account?</p>
         <Link href="/sign-in" className="text-[#3f3ad4] hover:underline">
-          შესვლა
+          Sign In
         </Link>
       </div>
     </div>

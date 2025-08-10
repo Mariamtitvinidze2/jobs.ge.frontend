@@ -86,7 +86,7 @@ export default function page() {
                       width={20}
                       height={20}
                     />
-                    დასაქმებული
+                    Employee
                   </p>
                   <p className="flex gap-2 items-center text-gray-600">
                     <Image src={Email} alt="email" width={18} height={18} />
@@ -96,7 +96,7 @@ export default function page() {
               </div>
             ))
           ) : (
-            <h1>ვაკანსიები არ არის</h1>
+            <h1>No vacancies available</h1>
           )}
         </div>
       </div>

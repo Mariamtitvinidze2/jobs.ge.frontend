@@ -39,7 +39,7 @@ export default function Header() {
               {user.role === "COMPANY" && (
                 <Link href="/add-vacancy">
                   <button className="flex cursor-pointer px-4 py-2.5 bg-[#A155B919] font-semibold hover:bg-[#A155B935] rounded-[14px] items-center gap-2 text-[13px] text-[#A155B9] max-[1118px]:hidden">
-                    + ვაკანსიის დამატება
+                    + Add Vacancy
                   </button>
                 </Link>
               )}
@@ -49,7 +49,7 @@ export default function Header() {
             <div className="flex gap-2 items-center">
               <Link href="/sign-in">
                 <button className="flex cursor-pointer px-5 py-2 bg-transparent border-[1px] border-[#0000006a] font-semibold text-black hover:bg-[#00000017] rounded-[10px] text-[15px] max-[768px]:hidden">
-                  შესვლა
+                  Sign In
                 </button>
               </Link>
             </div>

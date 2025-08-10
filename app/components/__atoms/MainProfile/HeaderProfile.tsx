@@ -68,7 +68,7 @@ export default function HeaderProfile({ user }: Props) {
             }}
             className="w-full text-left px-4 py-2 hover:bg-gray-100"
           >
-            პროფილი
+            Profile
           </button>
           <button
             onClick={() => {
@@ -77,26 +77,26 @@ export default function HeaderProfile({ user }: Props) {
             }}
             className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600"
           >
-            გასვლა
+            Log Out
           </button>
         </div>
       )}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-transparent">
           <div className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-md text-center border border-gray-200 backdrop-blur-sm">
-            <p className="text-lg mb-4">ნამდვილად გსურს გამოსვლა?</p>
+            <p className="text-lg mb-4">Are you sure you want to log out?</p>
             <div className="flex justify-center gap-4">
               <button
                 onClick={() => setShowModal(false)}
                 className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300"
               >
-                არა
+                No
               </button>
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
               >
-                გასვლა
+                Log Out
               </button>
             </div>
           </div>

@@ -48,7 +48,7 @@ export default function VacanciesList() {
         const resp = await axiosInstance.get("vacancies", { params });
         if (resp.status === 200) setVacancies(resp.data);
       } catch (error) {
-        console.error("error in fetching vacancies");
+        console.error("Error fetching vacancies:", error);
       } finally {
         setLoading(false);
       }
@@ -62,8 +62,8 @@ export default function VacanciesList() {
   if (!vacancies.length)
     return (
       <div className="text-center py-20 text-gray-600">
-        <h2 className="text-2xl font-bold mb-2">არ მოიძებნბეა</h2>
-        <p className="text-sm">შეამოწმე სხვა კატეგორია ან ადგილმდებარეობა</p>
+        <h2 className="text-2xl font-bold mb-2">No Results Found</h2>
+        <p className="text-sm">Check another category or location</p>
       </div>
     );
 
@@ -77,7 +77,7 @@ export default function VacanciesList() {
         className="mt-24 max-w-[1440px] mx-auto px-[100px] max-[1300px]:px-[50px] max-[850px]:px-5"
       >
         <h1 className="text-[32px] font-semibold pb-6 text-center">
-          ვაკანსიები
+          Vacancies
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {vacancies.map((el: Vacancy, index) => (

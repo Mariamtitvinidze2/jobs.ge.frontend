@@ -26,27 +26,25 @@ export default function UserDescription({ user }: { user: User }) {
   };
 
   return (
-    <div className="bg-[#e5e7eb] w-full max-w-[1000px] p-8 rounded-[20px] ml-[130px]  min-h-[82vh] shadow-lg">
+    <div className="bg-[#e5e7eb] w-full max-w-[1000px] p-8 rounded-[20px] ml-[130px] min-h-[82vh] shadow-lg">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b pb-6">
         <div className="flex-1">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">
-            ჩემს შესახებ
-          </h1>
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">About Me</h1>
           <p className="text-sm text-gray-500">
-            შექმნის თარიღი:{" "}
+            Creation Date:{" "}
             <span className="font-medium text-gray-700">
               {user.createdAt.split("T")[0]}
             </span>
           </p>
           <p className="mt-1 text-sm text-gray-500">
-            გაგზავნილი რეზიუმეები:{" "}
+            Submitted Resumes:{" "}
             <span className="font-medium text-gray-700">
               {user.applies.length}
             </span>
           </p>
         </div>
         <div className="flex flex-col items-center gap-3">
-          <div className="w-28 h-28 relative rounded-full overflow-hidden ">
+          <div className="w-28 h-28 relative rounded-full overflow-hidden">
             <Image
               src={
                 user.avatar ||
@@ -69,14 +67,14 @@ export default function UserDescription({ user }: { user: User }) {
               <button
                 className="text-green-600 hover:text-green-800"
                 onClick={handleSave}
-                title="შენახვა"
+                title="Save"
               >
                 <Check size={20} />
               </button>
               <button
                 className="text-red-600 hover:text-red-800"
                 onClick={handleCancel}
-                title="გაუქმება"
+                title="Cancel"
               >
                 <X size={20} />
               </button>
@@ -84,22 +82,22 @@ export default function UserDescription({ user }: { user: User }) {
           ) : (
             <>
               <h2 className="text-lg font-semibold text-gray-800">
-                {editedName || "მომხმარებელი"}
+                {editedName || "User"}
               </h2>
 
               <button
-                className="flex items-center gap-2 text-black  font-medium text-sm transition"
+                className="flex items-center gap-2 text-black font-medium text-sm transition"
                 onClick={() => setIsEditing(true)}
               >
                 <Pencil className="w-4 h-4" />
-                რედაქტირება
+                Edit
               </button>
             </>
           )}
         </div>
       </div>
 
-      {/* რეზიუმეების სია */}
+      {/* Resumes List */}
       <div className="mt-6 space-y-4">
         {(user.applies as unknown as Vacancy[]).map((el, index) => (
           <div
@@ -118,7 +116,7 @@ export default function UserDescription({ user }: { user: User }) {
               )}
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-gray-800">
-                  {el.name || "ვაკანსიის დასახელება"}
+                  {el.name || "Vacancy Title"}
                 </h3>
                 <p className="flex gap-2 text-sm text-gray-600 mt-1 items-center">
                   <Image
@@ -128,13 +126,13 @@ export default function UserDescription({ user }: { user: User }) {
                     height={16}
                   />
                   {typeof el.company.fullName === "string"
-                    ? el.company.fullName || "კომპანიის სახელი"
+                    ? el.company.fullName || "Company Name"
                     : `${el.company.fullName?.firstName ?? ""} ${
                         el.company.fullName?.lastName ?? ""
-                      }` || "კომპანიის სახელი"}
+                      }` || "Company Name"}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  გაგზავნილი რეზიუმეები: {el.resumes.length}
+                  Submitted Resumes: {el.resumes.length}
                 </p>
               </div>
             </div>

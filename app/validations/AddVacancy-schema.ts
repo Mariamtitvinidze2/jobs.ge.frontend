@@ -3,70 +3,65 @@ import * as yup from "yup";
 export const AddVacancySchema = yup.object().shape({
   name: yup
     .string()
-    .required("ვაკანსიის სახელი სავალდებულოა")
-    .min(2, "ვაკანსიის სახელი უნდა იყოს მინიმუმ 2 სიმბოლო"),
+    .required("Vacancy name is required")
+    .min(2, "Vacancy name must be at least 2 characters"),
   sallery: yup
     .number()
-    .typeError("ანაზღაურება უნდა იყოს რიცხვი")
-    .required("ანაზღაურება სავალდებულოა")
-    .min(0, "ანაზღაურება უნდა იყოს 0 ან მეტი"),
+    .typeError("Salary must be a number")
+    .required("Salary is required")
+    .min(0, "Salary must be 0 or greater"),
   location: yup
     .string()
-    .required("მდებარეობა სავალდებულოა")
+    .required("Category is required")
     .oneOf(
       [
-        "IT და პროგრამირება",
-  "საგანმანათლებლო",
-  "მარკეტინგი",
-  "ფინანსები",
-  "სამედიცინო სფერო",
-  "სამართალი",
-  "სამშენებლო",
-  "ბუღალტერია, ფინანსები",
-  "ავტო-სერვისი",
-  "განცხადება, მოლარე, კონსულტანტი",
-  "განათლება",
-  "გაყიდვები, მარკეტინგი",
-  "დაზღვევა, ბანკები",
-  "დასუფთავება",
-  "დაცვა, უსაფრთხოება",
-  "მზარეული, ბარმენი",
-  "მექანიკა",
-  "მშენებლობა",
-  "რემონტი, შენმებობა",
-  "საოფისე საქმე, ადმინისტრირება",
-  "სასტუმრო, ტურიზმი",
-  "სამშენებლო სამგზავროები",
-  "სპორტი, გარიგება",
-  "ინჟინერია",
-  "სტატისტიკა",
-  "მენეჯმენტი",
-  "ლოგისტიკა, საქმეები",
-  "ფარმაცია, ჯანმრთელობა",
-  "ხელოვნება, მენეჯმენტი",
-  "ხელოსანი, შეკეთება, მორთული",
-  "ჭკა, მომღერლე, დამხმარე",
-  "წყალქვეშა მეხანძრე",
+        "IT and Programming",
+        "Educational",
+        "Marketing",
+        "Finances",
+        "Medical Field",
+        "Law",
+        "Construction",
+        "Accounting, Finances",
+        "Auto Service",
+        "Advertisement, Cashier, Consultant",
+        "Education",
+        "Sales, Marketing",
+        "Insurance, Banks",
+        "Cleaning",
+        "Protection, Security",
+        "Cook, Bartender",
+        "Mechanics",
+        "Construction",
+        "Repair, Building",
+        "Office Work, Administration",
+        "Hotel, Tourism",
+        "Construction Vehicles",
+        "Sports, Negotiation",
+        "Engineering",
+        "Statistics",
+        "Management",
+        "Logistics, Jobs",
+        "Pharmacy, Health",
+        "Art, Management",
+        "Handyman, Repair, Decoration",
+        "Assistant, Singer, Helper",
+        "Underwater Firefighter",
       ],
-      "აირჩიეთ სწორი მდებარეობა"
+      "Select a valid category"
     ),
-    workplace: yup
+  workplace: yup
     .string()
-    .required("სამუშაო ადგილის არჩევა სავალდებულოა")
-    .oneOf(["ადგილზე", "სახლში", "არჩევით"], "აირჩიეთ სწორი სამუშაო ადგილი"),
-
+    .required("Workplace selection is required")
+    .oneOf(["On-site", "Remote", "Optional"], "Select a valid workplace"),
   duration: yup
     .string()
-    .required("დროის მონაკვეთის არჩევა სავალდებულოა")
-    .oneOf(
-      ["ნახევარ განაკვეთიანი", "სრულ განაკვეთიანი", "შერეული"],
-      "აირჩიეთ სწორი დროის მონაკვეთი"
-    ),
-
+    .required("Duration selection is required")
+    .oneOf(["Part-time", "Full-time", "Hybrid"], "Select a valid duration"),
   description: yup
     .string()
-    .required("აღწერა სავალდებულოა")
-    .min(10, "აღწერა უნდა იყოს მინიმუმ 10 სიმბოლო"),
+    .required("Description is required")
+    .min(10, "Description must be at least 10 characters"),
 });
 
 export type AddVacancyType = yup.InferType<typeof AddVacancySchema>;

@@ -23,7 +23,7 @@ export default function CompanyProfile({ company }: Props) {
 
         <h2 className="text-2xl font-semibold text-purple-700 flex items-center gap-2 mb-6">
           <Briefcase className="w-6 h-6 text-purple-500" />
-          ვაკანსიები
+          Vacancies
         </h2>
 
         {company.vacansies && company.vacansies.length > 0 ? (
@@ -41,14 +41,14 @@ export default function CompanyProfile({ company }: Props) {
 
                 <p className="text-gray-600 mt-2">{vacancy.description}</p>
                 <p className="text-sm text-gray-500 mt-2">
-                  მდებარეობა: {vacancy.location}
+                  Location: {vacancy.location}
                 </p>
                 <p className="text-sm text-gray-500 mb-3">
-                  ანაზღაურება: {vacancy.sallery}$
+                  Salary: {vacancy.sallery}$
                 </p>
 
                 <div className="mt-4 bg-gray-50 p-3 rounded-md">
-                  <h3 className="font-semibold mb-2">გადმოგზავნილი სივები</h3>
+                  <h3 className="font-semibold mb-2">Submitted Resumes</h3>
                   {vacancy.resumes && vacancy.resumes.length > 0 ? (
                     <ul className="list-disc list-inside space-y-1">
                       {vacancy.resumes.map((resume) => (
@@ -64,7 +64,7 @@ export default function CompanyProfile({ company }: Props) {
                   ) : (
                     <p className="text-gray-400 text-sm flex items-center gap-1">
                       <Frown className="w-4 h-4" />
-                      ამჟამად რეზიუმი არ არის
+                      No resumes available yet
                     </p>
                   )}
                 </div>
@@ -74,7 +74,7 @@ export default function CompanyProfile({ company }: Props) {
         ) : (
           <div className="text-center text-gray-500 mt-10 flex flex-col items-center">
             <Frown className="w-10 h-10 mb-2 text-gray-400" />
-            <p>ვაკანსიები ჯერ არ არის.</p>
+            <p>No vacancies available yet.</p>
           </div>
         )}
       </div>

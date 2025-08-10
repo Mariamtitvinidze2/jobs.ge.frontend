@@ -47,7 +47,7 @@ export default function SignIn() {
         router.push("/");
       }
     } catch (error: any) {
-      setError(error.response?.data?.message || "დაფიქსირდა შეცდომა");
+      setError(error.response?.data?.message || "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -58,13 +58,13 @@ export default function SignIn() {
       <Image src={logo} alt="logo" width={140} height={140} />
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-10">
         <h2 className="text-3xl font-bold text-center text-[#3f3ad4] mb-6 max-[450px] ml-[-277px] text-[22px]">
-          შესვლა
+          Sign In
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              ელ-ფოსტა
+              Email
             </label>
             <input
               {...register("email")}
@@ -80,7 +80,7 @@ export default function SignIn() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              პაროლი
+              Password
             </label>
             <div className="relative">
               <input
@@ -112,7 +112,7 @@ export default function SignIn() {
             )}
             {error && (
               <h1 className="text-red-500 text-[14px] mt-1">
-                არასწორი მონაცემები
+                Incorrect credentials
               </h1>
             )}
           </div>
@@ -120,14 +120,14 @@ export default function SignIn() {
             type="submit"
             className="w-full cursor-pointer py-3 bg-[#3f3ad4] text-white font-semibold rounded-lg hover:bg-[#8f44a4] transition duration-300"
           >
-            შესვლა
+            Sign In
           </button>
           {loading && <h1>...loading</h1>}
         </form>
 
         <div className="flex gap-2 mt-4">
           <Link href="/sign-up" className="text-[#3f3ad4] hover:underline">
-            რეგისტრაცია
+            Sign Up
           </Link>
         </div>
       </div>

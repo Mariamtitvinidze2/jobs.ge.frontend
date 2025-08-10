@@ -28,7 +28,7 @@ export default function VacancyModal({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setErrorMessage(null);
     if (e.target.files && e.target.files[0].name.split(".")[1] !== "pdf") {
-      setErrorMessage("ფაილი აუცილებლად უნდა იყოს PDF");
+      setErrorMessage("The file must be a PDF");
       return;
     }
 
@@ -39,7 +39,7 @@ export default function VacancyModal({
 
   const handleSubmit = async () => {
     if (!file) {
-      setErrorMessage("აირჩიე PDF ფაილი");
+      setErrorMessage("Select a PDF file");
       return;
     }
 
@@ -60,7 +60,7 @@ export default function VacancyModal({
       );
 
       if (resp.status === 201) {
-        alert("რეზიუმე გაგზავნილია");
+        alert("Resume sent successfully");
         setResumeModal(false);
         onClose();
       }
@@ -69,10 +69,10 @@ export default function VacancyModal({
       if (error instanceof AxiosError) {
         setErrorMessage(
           error.response?.data?.message ||
-            "ფაილის ატვირთვა ვერ მოხერხდა. სცადე თავიდან."
+            "Failed to upload the file. Try again."
         );
       } else {
-        setErrorMessage("დაფიქსირდა შეცდომა. სცადე თავიდან.");
+        setErrorMessage("An error occurred. Try again.");
       }
     }
   };
@@ -128,7 +128,9 @@ export default function VacancyModal({
         </div>
 
         <div className="mt-6">
-          <h1 className="text-[16px] font-semibold mb-2">ვაკანსიის აღწერა</h1>
+          <h1 className="text-[16px] font-semibold mb-2">
+            Vacancy Description
+          </h1>
           <p className="text-gray-500 text-[14px]">{vacancy.description}</p>
         </div>
 
@@ -160,7 +162,7 @@ export default function VacancyModal({
             onClick={() => setResumeModal(true)}
             className="bg-violet-600 text-white px-6 py-2 rounded-xl hover:bg-violet-700 transition"
           >
-            რეზიუმეს გაგზავნა
+            Send Resume
           </button>
         </div>
 
@@ -174,8 +176,8 @@ export default function VacancyModal({
                 ×
               </button>
 
-              <h2 className="text-xl font-semibold">რეზიუმეს ატვირთვა</h2>
-              <p className="text-sm text-gray-500">ატვირთე რეზიუმე</p>
+              <h2 className="text-xl font-semibold">Upload Resume</h2>
+              <p className="text-sm text-gray-500">Upload your resume</p>
 
               {errorMessage && (
                 <p className="text-red-500 text-sm">{errorMessage}</p>
@@ -193,11 +195,11 @@ export default function VacancyModal({
                   htmlFor="resume-upload"
                   className="cursor-pointer bg-violet-100 text-[#3f3ad4] font-semibold px-4 py-2 rounded-lg hover:bg-violet-200 transition"
                 >
-                  ფაილის არჩევა
+                  Choose File
                 </label>
                 {file && (
                   <p className="text-black text-sm">
-                    რეზიუმის არჩევა წარმატებით შესრულდა
+                    Resume selected successfully
                   </p>
                 )}
               </div>
@@ -206,7 +208,7 @@ export default function VacancyModal({
                 onClick={handleSubmit}
                 className="w-full bg-[#3f3ad4] text-white py-2 px-4 rounded-lg hover:bg-violet-700 transition"
               >
-                გაგზავნა
+                Send
               </button>
             </div>
           </div>

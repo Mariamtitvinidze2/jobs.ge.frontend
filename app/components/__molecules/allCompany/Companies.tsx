@@ -24,16 +24,16 @@ const Companies = () => {
       try {
         const data = (await GetCompanies()) as Company[];
         if (data && data.length > 0) {
-          const randomCompanies = getRandomItems(data, 6); // Limit to 6 random companies
+          const randomCompanies = getRandomItems(data, 6);
           setCompanies(randomCompanies);
-          console.log("Fetched Companies:", randomCompanies); // Debug log
+          console.log("Fetched Companies:", randomCompanies);
         } else {
           console.warn("No companies returned from GetCompanies.");
-          setError("კომპანიების მონაცემები ვერ მოიძებნა.");
+          setError("Company data could not be found.");
         }
       } catch (err) {
         console.error("Error fetching companies:", err);
-        setError("შეცდომა კომპანიების ჩატვირთვისას.");
+        setError("Error loading companies.");
       } finally {
         setLoading(false);
       }
@@ -46,8 +46,6 @@ const Companies = () => {
   if (error) {
     return <h1 className="text-center text-red-600">{error}</h1>;
   }
-
-  // Duplicate companies for seamless scrolling
   const loopedCompanies = [...companies, ...companies];
 
   return (
@@ -78,11 +76,11 @@ const Companies = () => {
                 <hr className="my-3 border-t border-gray-200" />
                 <div className="flex flex-col gap-1 text-[14px]">
                   <p className="text-gray-500 line-clamp-3">
-                    {company.description || "აღწერა არ არის"}
+                    {company.description || "No description available"}
                   </p>
                   <p className="flex gap-2">
                     <Image src={Email} alt="email" width={18} height={18} />
-                    {company.email || "ელ.ფოსტა არ არის"}
+                    {company.email || "No email available"}
                   </p>
                   <p className="flex gap-2">
                     <Image
@@ -91,13 +89,13 @@ const Companies = () => {
                       width={20}
                       height={20}
                     />
-                    {company.vacansies?.length || 0} ვაკანსია
+                    {company.vacansies?.length || 0} vacancies
                   </p>
                 </div>
               </Link>
             ))
           ) : (
-            <h1 className="text-center">ჯერჯერობით კომპანიები არ არის</h1>
+            <h1 className="text-center">No companies available yet</h1>
           )}
         </div>
       </div>

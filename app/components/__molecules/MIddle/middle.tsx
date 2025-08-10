@@ -27,37 +27,37 @@ export default function Search() {
   const router = useRouter();
 
   const fieldsList = [
-    "IT და პროგრამირება",
-    "საგანმანათლებლო",
-    "მარკეტინგი",
-    "ფინანსები",
-    "სამედიცინო სფერო",
-    "სამართალი",
-    "სამშენებლო",
-    "ბუღალტერია, ფინანსები",
-    "ავტო-სერვისი",
-    "განცხადება, მოლარე, კონსულტანტი",
-    "განათლება",
-    "გაყიდვები, მარკეტინგი",
-    "დაზღვევა, ბანკები",
-    "დასუფთავება",
-    "დაცვა, უსაფრთხოება",
-    "მზარეული, ბარმენი",
-    "მექანიკა",
-    "მშენებლობა",
-    "რემონტი, შენმებობა",
-    "საოფისე საქმე, ადმინისტრირება",
-    "სასტუმრო, ტურიზმი",
-    "სამშენებლო სამგზავროები",
-    "სპორტი, გარიგება",
-    "ინჟინერია",
-    "სტატისტიკა",
-    "მენეჯმენტი",
-    "ლოგისტიკა, საქმეები",
-    "ფარმაცია, ჯანმრთელობა",
-    "ხელოვნება, მენეჯმენტი",
-    "ხელოსანი, შეკეთება, მორთული",
-    "ჭკა, მომღერლე, დამხმარე",
+    "IT and Programming",
+    "Educational",
+    "Marketing",
+    "Finances",
+    "Medical Field",
+    "Law",
+    "Construction",
+    "Accounting, Finances",
+    "Auto Service",
+    "Advertisement, Cashier, Consultant",
+    "Education",
+    "Sales, Marketing",
+    "Insurance, Banks",
+    "Cleaning",
+    "Protection, Security",
+    "Cook, Bartender",
+    "Mechanics",
+    "Construction",
+    "Repair, Building",
+    "Office Work, Administration",
+    "Hotel, Tourism",
+    "Construction Vehicles",
+    "Sports, Negotiation",
+    "Engineering",
+    "Statistics",
+    "Management",
+    "Logistics, Jobs",
+    "Pharmacy, Health",
+    "Art, Management",
+    "Handyman, Repair, Decoration",
+    "Assistant, Singer, Helper",
   ];
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function Search() {
   });
 
   const onSubmit = ({ name, category, minSallery, maxSallery }: SearchType) => {
-    // URL query-ის აგება
+    // Build URL query
     const query = new URLSearchParams();
 
     if (name) query.append("name", name);
@@ -89,12 +89,12 @@ export default function Search() {
     if (minSallery) query.append("minSallery", String(minSallery));
     if (maxSallery) query.append("maxSallery", String(maxSallery));
 
-    // გადაგდება results გვერდზე ფილტრებით
+    // Redirect to results page with filters
     router.push(`/vacancies?${query.toString()}`);
   };
 
   const handleSearch = () => {
-    // უბრალოდ წამოვიღოთ ტექსტი და კატეგორია და გადავხედოთ რა გამოვა
+    // Just take the text and category and see what comes out
     onSubmit({
       name: searchQuery,
       category: selectedField,
@@ -119,7 +119,7 @@ export default function Search() {
             <div className="flex items-center bg-white rounded-2xl shadow-md w-[700px] px-4 py-2 relative z-30">
               <input
                 type="text"
-                placeholder="ჩაწერე პროფესია, სფერო ან კომპანია..."
+                placeholder="Enter profession, field or company..."
                 className="flex-grow outline-none text-sm text-gray-700 placeholder-gray-400"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -130,14 +130,14 @@ export default function Search() {
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <BsGrid />
-                {selectedField || "აირჩიე სფერო"}
+                {selectedField || "Select field"}
               </div>
               <button
                 className="ml-3 bg-[#8054D3] text-white px-6 py-2 rounded-xl hover:bg-purple-700 transition"
                 onClick={handleSearch}
                 type="button"
               >
-                იპოვე
+                Find
               </button>
             </div>
 
@@ -190,14 +190,14 @@ export default function Search() {
                         htmlFor="minSallery"
                         className="mb-1 text-sm text-gray-700"
                       >
-                        მინიმუმი
+                        Minimum
                       </label>
                       <input
                         {...register("minSallery")}
                         type="number"
                         id="minSallery"
                         className="outline-none cursor-pointer text-[14px] w-full max-w-[240px] pr-4 border border-gray-300 p-3 rounded-[20px] focus:border-[#a155b9] focus:ring-2 focus:ring-[#a155b9]"
-                        placeholder="მაგ: 1000"
+                        placeholder="e.g.: 1000"
                       />
                     </div>
                     <div className="flex flex-col">
@@ -205,14 +205,14 @@ export default function Search() {
                         htmlFor="maxSallery"
                         className="mb-1 text-sm text-gray-700"
                       >
-                        მაქსიმუმი
+                        Maximum
                       </label>
                       <input
                         {...register("maxSallery")}
                         type="number"
                         id="maxSallery"
                         className="outline-none cursor-pointer text-[14px] w-full max-w-[240px] pr-4 border border-gray-300 p-3 rounded-[20px] focus:border-[#a155b9] focus:ring-2 focus:ring-[#a155b9]"
-                        placeholder="მაგ: 3000"
+                        placeholder="e.g.: 3000"
                       />
                     </div>
                   </div>
@@ -221,7 +221,7 @@ export default function Search() {
                       type="submit"
                       className="p-4 bg-[#a155b9] mt-2 rounded-full cursor-pointer text-white font-semibold hover:bg-[#8c3ca0] transition-colors"
                     >
-                      ძებნა
+                      Search
                     </button>
                   </div>
                 </div>

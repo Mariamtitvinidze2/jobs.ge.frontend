@@ -19,7 +19,7 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setErrorMessage(null);
     if (e.target.files && e.target.files[0].name.split(".")[1] !== "pdf") {
-      setErrorMessage("ფაილი აუცილებლად უნდა იყოს PDF");
+      setErrorMessage("The file must be a PDF");
       return;
     }
 
@@ -30,7 +30,7 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
 
   const handleSubmit = async () => {
     if (!file) {
-      setErrorMessage("აირჩიე PDF ფაილი");
+      setErrorMessage("Select a PDF file");
       return;
     }
 
@@ -52,7 +52,7 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
       );
 
       if (resp.status === 201) {
-        alert("რეზიუმე გაგზავნილია");
+        alert("Resume sent successfully");
         setModal(false);
       }
     } catch (error) {
@@ -60,10 +60,10 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
       if (error instanceof AxiosError) {
         setErrorMessage(
           error.response?.data?.message ||
-            "ფაილის ატვირთვა ვერ მოხერხდა. სცადე თავიდან."
+            "Failed to upload the file. Please try again."
         );
       } else {
-        setErrorMessage("დაფიქსირდა შეცდომა. სცადე თავიდან.");
+        setErrorMessage("An error occurred. Please try again.");
       }
     }
   };
@@ -78,7 +78,7 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
           ×
         </button>
 
-        <h2 className="text-xl font-semibold">რეზიუმეს ატვირთვა</h2>
+        <h2 className="text-xl font-semibold">Upload Resume</h2>
 
         {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
 
@@ -95,11 +95,11 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
             htmlFor="resume-upload"
             className="cursor-pointer bg-violet-100 text-violet-700 font-semibold px-4 py-2 rounded-lg hover:bg-violet-200 transition duration-200"
           >
-            ფაილის არჩევა
+            Select File
           </label>
 
           {file !== null ? (
-            <p className="text-black">რეზიუმის არჩევა წარმატებით შესრულდა</p>
+            <p className="text-black">Resume selected successfully</p>
           ) : null}
         </div>
 
@@ -107,7 +107,7 @@ export default function AddResumeModal({ vacancyId, setModal }: Props) {
           onClick={handleSubmit}
           className="w-full cursor-pointer bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
         >
-          გაგზავნა
+          Submit
         </button>
       </div>
     </div>

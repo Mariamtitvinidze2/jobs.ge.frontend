@@ -33,7 +33,7 @@ export default function Companies() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="mt-23 max-w-[1440px] w-full mx-auto px-[100px] max-[1300px]:px-[50px] max-[850px]:px-5"
       >
-        <h1 className="text-[32px] font-semibold pb-3">ყველა კომპანია</h1>
+        <h1 className="text-[32px] font-semibold pb-3">All Companies</h1>
         {loading ? (
           <LoadingOverlay />
         ) : (
@@ -76,7 +76,7 @@ export default function Companies() {
                           width={20}
                           height={20}
                         />
-                        დასაქმებული
+                        Employee
                       </p>
                       <p className="flex gap-2 text-[13px]">
                         {" "}
@@ -91,14 +91,14 @@ export default function Companies() {
                           width={20}
                           height={20}
                         />
-                        {el.vacansies?.length || 0} ვაკანსია
+                        {el.vacansies?.length || 0} Vacancy
                       </p>
                     </div>
                   </div>
                 </Link>
               ))
             ) : (
-              <h1>კომპანიები არ არის</h1>
+              <h1>No companies available</h1>
             )}
           </div>
         )}

@@ -83,11 +83,11 @@ export default function CompanyApproval() {
                 }`}
               >
                 {company?.status === "rejected"
-                  ? "თქვენ კომპანია არ დაამატეთ საიტზე"
-                  : "თქვენ კომპანია წარმატებით დაამატეთ საიტზე"}
+                  ? "You did not add the company to the site"
+                  : "You successfully added the company to the site"}
               </h2>
               <p className="text-sm font-semibold text-gray-700">
-                სტატუსი:
+                Status:
                 <span
                   className={`ml-2 ${
                     company?.status === "rejected"
@@ -122,7 +122,7 @@ export default function CompanyApproval() {
             </p>
 
             <p className="text-sm font-medium">
-              სტატუსი:
+              Status:
               <span
                 className={`ml-2 ${
                   company?.status === "rejected"
@@ -137,7 +137,7 @@ export default function CompanyApproval() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <p className="block text-sm font-medium text-gray-700">
-              აირჩიე სასურველი სტატუსი
+              Select Desired Status
             </p>
 
             <div className="flex gap-4">
@@ -153,7 +153,7 @@ export default function CompanyApproval() {
                 peer-checked:bg-red-100 peer-checked:text-red-600 peer-checked:border-red-400
                 bg-gray-100 text-gray-600 border-gray-300 hover:bg-red-50 font-semibold"
                 >
-                  ❌ უარყოფა
+                  ❌ Reject
                 </div>
               </label>
 
@@ -169,7 +169,7 @@ export default function CompanyApproval() {
                 peer-checked:bg-green-100 peer-checked:text-green-600 peer-checked:border-green-400
                 bg-gray-100 text-gray-600 border-gray-300 hover:bg-green-50 font-semibold"
                 >
-                  ✅ დამტკიცება
+                  ✅ Approve
                 </div>
               </label>
             </div>
@@ -178,7 +178,7 @@ export default function CompanyApproval() {
               type="submit"
               className="bg-[#A155B9] hover:bg-[#8e43a9] text-white w-full font-semibold py-2 px-6 rounded-lg transition duration-300"
             >
-              გაგზავნა
+              Submit
             </button>
           </form>
         </div>

@@ -58,7 +58,7 @@ export default function Vacancies() {
                   {el.name}
                 </h2>
                 <p className="text-[14px] text-gray-500 mb-2">
-                  {el.sallery} ₾ თვეში
+                  {el.sallery} ₾ per month
                 </p>
                 <hr className="my-3 border-t border-gray-200" />
                 <div className="flex flex-col gap-1 text-[14px]">
@@ -76,7 +76,7 @@ export default function Vacancies() {
           </div>
         </div>
         {vacancies.length === 0 && (
-          <h1 className="text-center mt-6">ვაკანსიები არ არის</h1>
+          <h1 className="text-center mt-6">No vacancies available</h1>
         )}
       </motion.div>
 

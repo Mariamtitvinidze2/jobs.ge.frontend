@@ -2,7 +2,6 @@
 import Header from "@/app/components/__organisms/header/Header";
 import { axiosInstance } from "@/app/lib/axios-instance";
 import { Company } from "@/app/types/types";
-import { h1 } from "framer-motion/client";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -62,7 +61,7 @@ export default function page() {
 
           <div className="flex items-center gap-2 text-sm text-gray-500">
             <span className="font-semibold text-gray-700">
-              ვაკანსიების რაოდენობა:
+              Number of Vacancies:
             </span>
             <span>{company?.vacansies?.length || 0}</span>
           </div>

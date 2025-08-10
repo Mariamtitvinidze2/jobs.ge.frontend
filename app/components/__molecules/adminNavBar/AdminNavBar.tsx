@@ -9,12 +9,12 @@ export default function AdminNavBar() {
     {
       icon: <Briefcase size={20} />,
       link: "/admin/vacancies",
-      label: "ვაკანსიები",
+      label: "Vacancies",
     },
     {
       icon: <Building2 size={20} />,
       link: "/admin/companies",
-      label: "კომპანიები",
+      label: "Companies",
     },
   ];
 
